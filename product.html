@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: white;
+            color: black;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            padding: 16px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(0, 0, 0, 0.072);
+            backdrop-filter: blur(10px);
+            padding: 16px 32px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        nav a {
+            color: black;
+            text-decoration: none;
+            margin: 0 16px;
+            font-size: 16px;
+            white-space: nowrap;
+        }
+
+        nav .onav {
+            color: black;
+            font-size: 16px;
+            white-space: nowrap;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 600px;
+            margin-left: 20px;
+        }
+
+        #serch {
+            padding: 8px 16px;
+            border-radius: 5px 0 0 5px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            width: 100%;
+            font-size: 16px;
+            background: rgba(0, 0, 0, 0.1);
+            color: black;
+        }
+
+        #search-button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            cursor: pointer;
+            border-radius: 0 5px 5px 0;
+            font-size: 16px;
+        }
+
+        #search-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 16px;
+            margin-top: 32px;
+            color: black;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-wrap: nowrap;
+            }
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            padding: 16px;
+        }
+
+        .product {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            margin-bottom: 16px;
+        }
+
+        .product button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .product button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+    <header onclick="window.location.href='index.html'">
+        <h1>Dhaval & Sons Electronics</h1>
+        <p>Your one-stop shop for all electronic needs!</p>
+    </header>
+
+    <nav>
+        <p class="onav"> Mr. Krish <br>Modh</p>
+        <p class="onav"> Deliver to Add <br>Surat</p>
+        <div class="search-container">
+            <input type="text" id="serch" name="serch" placeholder="Search">
+            <button id="search-button">Search</button>
+        </div>
+        <a class="nav_text" href="">Order <br> & Returns</a>
+        <a href="cart.html"> <img src="Svgs Files/cart.svg" alt="" width="32" height="32">Cart</a>
+        <a href="login.html">Account</a>
+    </nav>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="product.html">Products</a>
+        <a href="contect.html">Contact</a>
+        <a href="about.html">About Us</a>
+    </nav>
+
+   
+    <section id="featured-section" style="display: flex; align-items: center; gap: 20px; padding: 20px;"
+        onclick="window.location.href='index_pages/leptop/Lenovo Yoga Slim 7 Aura Edition.html'">
+        <!-- Video -->
+        <div style="flex: 1;">
+            <video aria-label="Sponsored video, click to navigate to featured page."
+                class="sbv-video-player sbv-display-table" playsinline="" muted="" preload="none"
+                oncontextmenu="return false; "
+                src="https://m.media-amazon.com/images/S/al-eu-726f4d26-7fdb/258ddbae-af6f-451f-af7b-cf1f75286812.mp4/productVideoOptimized.mp4"
+                aria-hidden="true"
+                poster="https://m.media-amazon.com/images/S/al-eu-726f4d26-7fdb/258ddbae-af6f-451f-af7b-cf1f75286812.mp4/r/THUMBNAIL_360P_FRAME_3_CAPTURE_2.JPG"
+                data-videopreviewsrc="https://m.media-amazon.com/images/S/al-eu-726f4d26-7fdb/258ddbae-af6f-451f-af7b-cf1f75286812.mp4/r/THUMBNAIL_360P_FRAME_3_CAPTURE_2.JPG"
+                crossorigin="anonymous" controls autoplay>
+
+            </video>
+        </div>
+
+        <!-- Laptop Image -->
+        <div style="flex: 1; text-align: center;">
+            <img src="Assets/Leptop/Lenovo Yoga Slim 7 Aura Edition/Lenovo Yoga Slim 7 Aura Edition.jpg"
+                alt="Lenovo Yoga Slim 7" style="max-width: 100%; height: auto; border-radius: 10px;">
+        </div>
+
+        <!-- Text -->
+        <div style="flex: 1; text-align: left;">
+            <h3>Lenovo Yoga Slim 7 Aura Edition</h3>
+            <p>
+                Discover unparalleled performance with the Lenovo Yoga Slim 7 Aura Edition.
+                Featuring Intel Evo Core Ultra 7, 32GB RAM, and 1TB SSD, this laptop is designed to elevate your
+                productivity and creativity.
+            </p>
+            <p><strong>Price:</strong> ₹1,48,190</p>
+            <button onclick="window.location.href='laptop_details.html'"
+                style="background-color: black; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">View
+                Details</button>
+        </div>
+    </section>
+    <!-- section 1 -->
+    <section id="products" class="product-grid">
+        <div class="product" onclick="window.location.href='index_pages/smartphone.html'">
+            <img src="Assets/Mobile/phone_display_product.jpg" alt="Smartphone">
+            <h3>Smartphones with outstanding performance, sleek design, and advanced technology await you!</h3>
+            <p>Starting Price: ₹19,999</p>
+            <button>View More</button>
+        </div>
+        <div class="product" onclick="window.location.href='leptop.html'">
+            <img src="Assets/Leptop/laptop_dsiplay_product.jpg" alt="Leptop">
+            <h3>Power-packed laptops designed to elevate your productivity and performance!</h3>
+            <p>Starting Price: ₹49,999</p>
+            <button>View More</button>
+        </div>
+        <div class="product" onclick="window.location.href='tws.html'">
+            <img src="Assets/earphones/earphones_display_product.jpg" alt="TWS">
+            <h3>Feel the deep bass and crystal-clear beats with our TWS earphones!</h3>
+            <p>Starting Price: ₹999</p>
+            <button>View More</button>
+        </div>
+        <div class="product" onclick="window.location.href='moniter.html'">
+            <img src="Assets/Moniter/monite_disply_product.jpg" alt="Moniter">
+            <h3>Power-packed laptops designed to elevate your productivity and performance!</h3>
+            <p>Starting Price: ₹49,999</p>
+            <button>View More</button>
+        </div>
+    </section>
+
+    <section id="featured-section" style="display: flex; align-items: center; gap: 20px; padding: 20px;"
+        onclick="window.location.href='index_pages/Mobile/iphone_16.html'">
+        <!-- Video -->
+        <div style="flex: 1;">
+            <video aria-label="Sponsored video, click to navigate to featured page."
+                class="sbv-video-player sbv-display-table" playsinline="" muted="" preload="none"
+                oncontextmenu="return false;"
+                src="https://m.media-amazon.com/images/S/al-eu-726f4d26-7fdb/f93085b3-c3d1-4307-81f8-f7fc18be6273.mp4/productVideoOptimized.mp4"
+                aria-hidden="true"
+                poster="https://m.media-amazon.com/images/S/al-eu-726f4d26-7fdb/f93085b3-c3d1-4307-81f8-f7fc18be6273.mp4/r/THUMBNAIL_360P_FRAME_3_CAPTURE_2.JPG"
+                data-videopreviewsrc="https://m.media-amazon.com/images/S/al-eu-726f4d26-7fdb/f93085b3-c3d1-4307-81f8-f7fc18be6273.mp4/r/THUMBNAIL_360P_FRAME_3_CAPTURE_2.JPG"
+                crossorigin="anonymous" controls autoplay>
+
+            </video>
+        </div>
+
+        <!-- Phone Image -->
+        <div style="flex: 1; text-align: center;">
+            <img src="Assets/Mobile/iphone_16_pro_display_product.webp" alt="Lenovo Yoga Slim 7"
+                style="max-width: 100%; height: auto; border-radius: 10px;">
+        </div>
+
+        <!-- Text -->
+        <div style="flex: 1; text-align: left;">
+            <h3>iPhone 16 Pro 128 GB: 5G</h3>
+            <p>Phone with Camera Control, 4K 120 fps Dolby Vision and a Huge Leap in Battery Life. Works with AirPods;
+                Desert Titanium
+            </p>
+            <p><strong>Price:</strong> ₹1,48,190</p>
+            <button onclick="window.location.href='laptop_details.html'"
+                style="background-color: black; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">View
+                Details</button>
+        </div>
+    </section>
+
+    <!-- 2nd section -->
+    <section id="products" class="product-grid">
+        <div class="product" onclick="window.location.href='tv.html'">
+            <img src="Assets/TV/Tv_display_product.jpg" alt="tv">
+            <h3>Ultra HD visuals and immersive sound for a cinematic TV experience!</h3>
+            <p>Starting Price: ₹19,999</p>
+            <button>View More</button>
+        </div>
+        <div class="product" onclick="window.location.href='Speaker.html'">
+            <img src="Assets/Speaker/speaker_dsiplay_product.jpg" alt="headphones">
+            <h3>Bring the cinema home with immersive sound and stunning visuals!</h3>
+            <p>Starting Price: ₹49,999</p>
+            <button>View More</button>
+        </div>
+        <div class="product" onclick="window.location.href='headphones.html'">
+            <img src="Assets/Hadephones/headphones_display_product.jpg" alt="Smartphone">
+            <h3>Dive into a world of pure sound with headphones that amaze!</h3>
+            <p>Starting Price: ₹999</p>
+            <button>View More</button>
+        </div>
+        <div class="product" onclick="window.location.href='watch.html'">
+            <img src="Assets/Watch/watch_display_product+.jpeg" alt="Smartphone">
+            <h3>Stay connected, track your health, and elevate your style seamlessly!</h3>
+            <p>Starting Price: ₹49,999</p>
+            <button>View More</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Dhaval & Sons Electronics. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

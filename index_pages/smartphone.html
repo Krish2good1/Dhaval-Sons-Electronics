@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Phone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: white;
+            color: black;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            padding: 16px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(0, 0, 0, 0.072);
+            backdrop-filter: blur(10px);
+            padding: 16px 32px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        nav a {
+            color: black;
+            text-decoration: none;
+            margin: 0 16px;
+            font-size: 16px;
+            white-space: nowrap;
+        }
+
+        nav .onav {
+            color: black;
+            font-size: 16px;
+            white-space: nowrap;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 600px;
+            margin-left: 20px;
+        }
+
+        #serch {
+            padding: 8px 16px;
+            border-radius: 5px 0 0 5px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            width: 100%;
+            font-size: 16px;
+            background: rgba(0, 0, 0, 0.1);
+            color: black;
+        }
+
+        #search-button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            cursor: pointer;
+            border-radius: 0 5px 5px 0;
+            font-size: 16px;
+        }
+
+        #search-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 16px;
+            margin-top: 32px;
+            color: black;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-wrap: nowrap;
+            }
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            padding: 16px;
+        }
+
+        .product {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            margin-bottom: 16px;
+        }
+
+        .product button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .product button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .product-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            gap: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .product-image {
+            flex: 1;
+            text-align: center;
+            max-width: 200px;
+            /* Adjust image size */
+        }
+
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .product-details {
+            flex: 2;
+            padding-left: 20px;
+        }
+
+        .product-details h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .product-details p {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .product-details strong {
+            font-size: 16px;
+            color: black;
+        }
+
+        .product-details button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .product-details button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        /* General styles for the featured sections */
+#featured-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+/* Video styling */
+#featured-section video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Image styling */
+#featured-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Text styling */
+#featured-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+#featured-section p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#featured-section button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* Default Layout (Laptop/Desktop) */
+#featured-section {
+    flex-direction: row; /* Arrange items side-by-side */
+}
+
+#featured-section > div:nth-child(1) {
+    order: 1; /* Video comes first */
+}
+
+#featured-section > div:nth-child(2) {
+    order: 2; /* Image comes second */
+}
+
+#featured-section > div:nth-child(3) {
+    order: 3; /* Text comes third */
+}
+
+/* Mobile Layout */
+@media (max-width: 768px) {
+    #featured-section {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    #featured-section > div:nth-child(1),
+    #featured-section > div:nth-child(2),
+    #featured-section > div:nth-child(3) {
+        order: initial; /* Keep natural flow: video, image, text */
+    }
+
+    #featured-section video,
+    #featured-section img {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    #featured-section h3 {
+        font-size: 1.2rem;
+    }
+
+    #featured-section p {
+        font-size: 0.9rem;
+    }
+
+    #featured-section button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <header onclick="window.location.href='index.html'">
+        <h1>Dhaval & Sons Electronics</h1>
+        <p>Your one-stop shop for all electronic needs!</p>
+    </header>
+
+    <nav>
+        <p class="onav"> Mr. Krish <br>Modh</p>
+        <p class="onav"> Deliver to Add <br>Surat</p>
+        <div class="search-container">
+            <input type="text" id="serch" name="serch" placeholder="Search">
+            <button id="search-button">Search</button>
+        </div>
+        <a class="nav_text" href="">Order <br> & Returns</a>
+        <a href="cart.html"> <img src="../Svgs_Files/cart.svg" alt="" width="32" height="32">Cart</a>
+        <a href="login.html">Account</a>
+    </nav>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="product.html">Products</a>
+        <a href="contect.html">Contact</a>
+        <a href="about.html">About Us</a>
+    </nav>
+
+<!-- video 1 section -->
+    <section id="featured-section" style="display: flex; align-items: center; gap: 20px; padding: 20px;"
+        onclick="window.location.href='../Assets/Mobile/S25 Ultra/s25_ultra.html'">
+        <!-- Video -->
+        <div style="flex: 1;">
+            <video src="../Assets/Mobile/S25 Ultra/s25_ultra.mp4" controls autoplay muted loop
+                style="width: 100%; height: auto;"></video>
+        </div>
+
+
+        <!-- Laptop Image -->
+        <div style="flex: 1; text-align: center;">
+            <img src="../Assets/Mobile/S25 Ultra/S25_Ultra_1.jpg" alt="Lenovo Yoga Slim 7"
+                style="max-width: 100%; height: auto; border-radius: 10px;">
+        </div>
+
+        <!-- Text -->
+        <div style="flex: 1; text-align: left;">
+            <h3>Samsung Galaxy S25 Ultra 5G AI Smartphone</h3>
+            <p>The Samsung Galaxy S25 Ultra 5G AI Smartphone features a 6.9-inch Dynamic AMOLED 2X display, Snapdragon 8
+                Elite processor, 12GB RAM, and up to 1TB storage. It boasts a 200MP main camera, S Pen support, and a
+                5,000mAh battery
+            </p>
+            <p><strong>Price:</strong> ₹1,39,998</p>
+            <button onclick="window.location.href='laptop_details.html'"
+                style="background-color: black; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">View
+                Details</button>
+        </div>
+    </section>
+    <!-- Sumsung S24 Ultra -->
+    <section class="product-section">
+        <!-- Product Image -->
+        <div class="product-image">
+            <img src="../Assets/Mobile/Sumsung S24_Ultra/sumsung S24_Ultra_display.webp" alt="Samsung Galaxy S24 Ultra">
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-details">
+            <h3>Samsung Galaxy S24 Ultra 5G AI Smartphone</h3>
+            <p>
+                Titanium Black, 12GB RAM, 256GB Storage. Unparalleled performance with an incredible camera and stunning
+                design.
+            </p>
+            <p><strong>Price:</strong> ₹99,899</p>
+            <button onclick="window.location.href='product_details.html'">View Details</button>
+        </div>
+    </section>
+
+    <!-- One Plus 13R -->
+    <section class="product-section">
+        <!-- Product Image -->
+        <div class="product-image">
+            <img src="../Assets/Mobile/One Plus 13R/One_Plus_13R_display.jpg" alt="One Plus 13R ">
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-details">
+            <h3>OnePlus 13R | Smarter with OnePlus AI (12GB RAM, 256GB Storage Astral Trail)</h3>
+            <p>
+                OnePlus 13R: Featuring a 6.7" AMOLED display, Snapdragon 8 Gen 2, 50MP camera, and 100W fast charging.
+            </p>
+            <p><strong>Price:</strong> ₹42,998</p>
+            <button onclick="window.location.href='product_details.html'">View Details</button>
+        </div>
+    </section>
+
+    <!-- Motorola edge 50 Fusion 5G -->
+    <section class="product-section">
+        <!-- Product Image -->
+        <div class="product-image">
+            <img src="Assets/Mobile/Motorola/Motorola_display.jpg" alt="Motorola edge 50 Fusion 5G">
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-details">
+            <h3>Motorola Edge 50 Fusion 5G (Marshmallow Blue, 12GB RAM, 256GB Storage)</h3>
+            <p>
+                Motorola Edge 50 Fusion 5G: Premium 6.8" AMOLED, Snapdragon 8 Gen 2, 108MP triple camera, 5G speed, and
+                ultra-smooth performance.
+            </p>
+            <p><strong>Price:</strong>₹23,250 </p>
+            <button onclick="window.location.href='product_details.html'">View Details</button>
+        </div>
+    </section>
+
+    <!-- Vivo X200 5G-->
+    <section class="product-section">
+        <!-- Product Image -->
+        <div class="product-image">
+            <img src="../Assets/Mobile/Vivo_x200/vivo_x200_display.jpg" alt="Vivo X200 5G">
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-details">
+            <h3>Vivo X200 5G (Natural Green, 16GB RAM, 512GB Storage)</h3>
+            <p>
+                Vivo X200 5G: Redefining style with a 6.78" AMOLED, Dimensity 9300, 200MP pro-grade camera, and next-gen
+                5G speed.
+            </p>
+            <p><strong>Price:</strong>₹71,999</p>
+            <button onclick="window.location.href='product_details.html'">View Details</button>
+        </div>
+    </section>
+
+    <!-- Sumsung A23 5G-->
+    <section class="product-section">
+        <!-- Product Image -->
+        <div class="product-image">
+            <img src="../Assets/Mobile/A23/A23_5G_disply.png" alt="Sumsung A23 5G">
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-details">
+            <h3>Samsung Galaxy A23 5G, Light Blue (6GB, 128GB Storage)</h3>
+            <p>
+                Samsung Galaxy A23 5G delivers exceptional performance with 6GB RAM, 128GB storage, and seamless 5G
+                connectivity for multitasking excellence.
+            </p>
+            <p><strong>Price:</strong>₹15,999</p>
+            <button onclick="window.location.href='product_details.html'">View Details</button>
+        </div>
+    </section>
+
+    <!-- One plus nord CE 4-->
+    <section class="product-section">
+        <!-- Product Image -->
+        <div class="product-image">
+            <img src="../Assets/Mobile/One plus norad ce 4/oneplus Nord_display.jpg" alt="One plus nord CE 4">
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-details">
+            <h3>OnePlus Nord CE4 (Celadon Marble, 8GB RAM, 128GB Storage)</h3>
+            <p>
+                OnePlus Nord CE 4 offers blazing-fast performance with optimized software, powerful processing, and
+                seamless 5G connectivity for smooth multitasking.
+            </p>
+            <p><strong>Price:</strong>₹22,990 </p>
+            <button onclick="window.location.href='product_details.html'">View Details</button>
+        </div>
+    </section>
+
+    <!-- Redmi Note 14 5G-->
+    <section class="product-section">
+        <!-- Product Image -->
+        <div class="product-image">
+            <img src="../Assets/Mobile/Redmi Note 14 5G/Redmi Note 14 5G_display_product.webp" alt="Redmi Note 14 5G">
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-details">
+            <h3>Redmi Note 14 5G (Mystique White, 6GB RAM 128GB Storage)</h3>
+            <p>
+                Global Debut MTK Dimensity 7025 Ultra | 2100 nits Segment Brightest 120Hz AMOLED | 50MP Sony LYT 600
+                OIS+EIS Triple Camera
+            </p>
+            <p><strong>Price:</strong>₹18,999 </p>
+            <button onclick="window.location.href='product_details.html'">View Details</button>
+        </div>
+    </section>
+
+    <!-- iQOO Neo9 Pro 5G -->
+    <section class="product-section">
+        <!-- Product Image -->
+        <div class="product-image">
+            <img src="../Assets/Mobile/IQQ nei 9 pro 5G/iqoo neo9 pro 5G_display_product.webp" alt="iQOO Neo9 Pro 5G ">
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-details">
+            <h3>iQOO Neo9 Pro 5G (Fiery Red, 8GB RAM, 128GB Storage)</h3>
+            <p>
+                Snapdragon 8 Gen 2 Processor | Supercomputing Chip Q1 | Flagship Level Sony IMX920 Camera
+            </p>
+            <p><strong>Price:</strong>₹31,999 </p>
+            <button onclick="window.location.href='product_details.html'">View Details</button>
+        </div>
+    </section>
+
+    <!-- Nothing Phone 2a 5G -->
+    <section class="product-section">
+        <!-- Product Image -->
+        <div class="product-image">
+            <img src="../Assets/Mobile/Nothing Phone 2a 5G/Nothing Phone 2a 5G_display_product.webp"
+                alt="Nothing Phone 2a 5G ">
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-details">
+            <h3>Nothing Phone 2a 5G (White, 8GB RAM, 128GB Storage)</h3>
+            <p>
+                Powered by the MediaTek Dimensity 7200 Pro processor, delivering ultra-smooth performance, efficient
+                multitasking, and exceptional 5G connectivity.
+            </p>
+            <p><strong>Price:</strong>₹20,486 </p>
+            <button onclick="window.location.href='product_details.html'">View Details</button>
+        </div>
+    </section>
+
+    <!-- reame Narzo 70 Turbo -->
+    <section class="product-section">
+        <!-- Product Image -->
+        <div class="product-image">
+            <img src="../Assets/Mobile/reame Narzo 70 Turbo/reame Narzo 70 Turbo_display_product.webp"
+                alt="reame Narzo 70 Turbo ">
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-details">
+            <h3>realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)</h3>
+            <p>
+                Segment's Fastest Dimensity 7300 Energy 5G Chipset | Motorsports Inspired Design
+            </p>
+            <p><strong>Price:</strong>₹16,998 </p>
+            <button onclick="window.location.href='product_details.html'">View Details</button>
+        </div>
+    </section>
+
+    <!-- Xiaomi 14 CIVI -->
+    <section class="product-section">
+        <!-- Product Image -->
+        <div class="product-image">
+            <img src="../Assets/Mobile/Xiaomi 14 CIVI/Xiaomi 14 CIVI.webp" alt="Xiaomi 14 CIVI">
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-details">
+            <h3>Xiaomi 14 CIVI (Shadow Black, 12GB RAM, 512GB Storage)</h3>
+            <p>
+                Xiaomi 14 CIVI is powered by a cutting-edge Snapdragon 7 Gen 2 processor, delivering exceptional speed
+                and efficiency.
+            </p>
+            <p><strong>Price:</strong>₹43,999 </p>
+            <button onclick="window.location.href='product_details.html'">View Details</button>
+        </div>
+    </section>
+
+    <!-- OPPO F27 Pro+ 5G  -->
+    <section class="product-section">
+        <!-- Product Image -->
+        <div class="product-image">
+            <img src="../Assets/Mobile/OPPO F27 Pro+ 5G/OPPO F27 Pro+ 5G.webp" alt="OPPO F27 Pro+ 5G">
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-details">
+            <h3>OPPO F27 Pro+ 5G (Dusk Pink, 8GB RAM, 256GB Storage)</h3>
+            <p>
+                6.7" FHD+ AMOLED Toughest 3D Curved Display|64MP AI Featured Camera|IP69 | 67W SUPERVOOC
+            </p>
+            <p><strong>Price:</strong>₹27,999 </p>
+            <button onclick="window.location.href='product_details.html'">View Details</button>
+        </div>
+    </section>
+
+    <!-- Google Pixel 7 Pro 5G  -->
+    <section class="product-section">
+        <!-- Product Image -->
+        <div class="product-image">
+            <img src="../Assets/Mobile/Google pixel 7 pro 5G/Google pixel 7 pro 5G.webp" alt="Google Pixel 7 Pro 5G">
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-details">
+            <h3>Gogle Pixel 7 Pro 5G (Obsidian, 12GB RAM, 128GB Storage)</h3>
+            <p>
+                powered by the advanced Google Tensor G2 processor, delivers unparalleled speed, AI capabilities, and
+                efficiency.
+            </p>
+            <p><strong>Price:</strong>₹44,999</p>
+            <button onclick="window.location.href='product_details.html'">View Details</button>
+        </div>
+    </section>
+
+    <!-- Tecno Phantom V Fold 2   -->
+    <section class="product-section">
+        <!-- Product Image -->
+        <div class="product-image">
+            <img src="../Assets/Mobile/Tecno Phantom V Fold 2/Tecno Phantom V Fold 2 _display_product.webp"
+                alt="Tecno Phantom V Fold 2 ">
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-details">
+            <h3>Tecno Phantom V Fold 2 (Rippling Blue, 12GB+512GB)</h3>
+            <p>
+                Strongest Fold Ever | Largest Battery in Fold Segment-5750mAh | Segment Largest Display | Rear - Triple
+                50MP Camera with OIS | 70W Fast
+            </p>
+            <p><strong>Price:</strong>₹89,999 </p>
+            <button onclick="window.location.href='product_details.html'">View Details</button>
+        </div>
+    </section>
+
+    <!-- Infinix Note 40 Pro 5G   -->
+    <section class="product-section">
+        <!-- Product Image -->
+        <div class="product-image">
+            <img src="../Assets/Mobile/Infinix Note 40 Pro 5G/Infinix Note 40 Pro 5G.webp" alt="Infinix Note 40 Pro 5G">
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-details">
+            <h3>Infinix Note 40 Pro 5G (Vintage Green, 256 GB) (16 GB RAM)</h3>
+            <p>
+                Powered by the MediaTek Dimensity 8050 processor, delivering exceptional speed, efficient multitasking,
+                and a seamless 5G experience.
+            </p>
+            <p><strong>Price:</strong>₹18,999 </p>
+            <button onclick="window.location.href='product_details.html'">View Details</button>
+        </div>
+    </section>
+
+    <!--Huawei Mate XT Ultimate  -->
+    <!-- https://www.smartprix.com/mobiles/huawei-mate-xt-tri-fold-ppd1lewbpzx8 copy from this  -->
+    <section class="product-section">
+        <!-- Product Image -->
+        <div class="product-image">
+            <img src="../Assets/Mobile/Huawei Mate XT Ultimate/Huawei Mate XT Ultimate_disaply_product.webp"
+                alt="IHuawei Mate XT Ultimate">
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-details">
+            <h3>Huawei Mate XT Ultimate</h3>
+            <p>
+                Powered by the 7nm Kirin 9010 processor, delivering exceptional speed, energy efficiency, and seamless
+                multitasking capabilities.
+            </p>
+            <p>This is an Upcoming Mobile Phone. <br>
+                Huawei Mate XT Ultimate is expected to launch soon. <br>
+                Set an Alert to know when it launches. <br>
+                <strong>Price:</strong>
+                ₹2,35,990 <br>
+                Expected Price
+            </p>
+            <button onclick="window.location.href='product_details.html'">View Details</button>
+        </div>
+    </section>
+
+    <!-- video 2 section -->
+
+    <section id="featured-section" style="display: flex; align-items: center; gap: 20px; padding: 20px;"
+        onclick="window.location.href='index_pages/Mobile/iphone_16.html'">
+        <!-- Video -->
+        <div style="flex: 1;">
+            <video aria-label="Sponsored video, click to navigate to featured page."
+                class="sbv-video-player sbv-display-table" playsinline="" muted="" preload="none"
+                oncontextmenu="return false;"
+                src="https://m.media-amazon.com/images/S/al-eu-726f4d26-7fdb/f93085b3-c3d1-4307-81f8-f7fc18be6273.mp4/productVideoOptimized.mp4"
+                aria-hidden="true"
+                poster="https://m.media-amazon.com/images/S/al-eu-726f4d26-7fdb/f93085b3-c3d1-4307-81f8-f7fc18be6273.mp4/r/THUMBNAIL_360P_FRAME_3_CAPTURE_2.JPG"
+                data-videopreviewsrc="https://m.media-amazon.com/images/S/al-eu-726f4d26-7fdb/f93085b3-c3d1-4307-81f8-f7fc18be6273.mp4/r/THUMBNAIL_360P_FRAME_3_CAPTURE_2.JPG"
+                crossorigin="anonymous" controls autoplay>
+
+            </video>
+        </div>
+
+        <!-- Iphone 16 pro last Phone Image -->
+        <div style="flex: 1; text-align: center;">
+            <img src="../Assets/Mobile/iphone_16_pro_display_product.webp" alt="Lenovo Yoga Slim 7"
+                style="max-width: 100%; height: auto; border-radius: 10px;">
+        </div>
+
+        <!-- Text -->
+        <div style="flex: 1; text-align: left;">
+            <h3>iPhone 16 Pro 128 GB: 5G</h3>
+            <p>Phone with Camera Control, 4K 120 fps Dolby Vision and a Huge Leap in Battery Life. Works with AirPods;
+                Desert Titanium
+            </p>
+            <p><strong>Price:</strong> ₹1,48,190</p>
+            <button onclick="window.location.href='laptop_details.html'"
+                style="background-color: black; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">View
+                Details</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Dhaval & Sons Electronics. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
