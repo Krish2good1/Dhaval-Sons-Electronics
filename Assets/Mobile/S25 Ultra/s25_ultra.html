@@ -483,16 +483,12 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 10px;
-            /* Add some spacing between videos */
             width: 100%;
             height: auto;
         }
 
         .video-section video {
             width: 100%;
-            /* Default to full width for smaller screens */
-            max-width: 500px;
-            /* Set a max width for larger screens */
             height: auto;
         }
 
@@ -503,8 +499,131 @@
 
             .video-section video {
                 width: 48%;
-                /* Adjust the width for side-by-side layout */
             }
+        }
+
+        .comment-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .comment-section h2 {
+            margin-bottom: 15px;
+        }
+
+        #comment-form {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        #comment-input {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #comment-form button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #comment-form button:hover {
+            background-color: #0056b3;
+        }
+
+        #comments-container {
+            margin-top: 20px;
+        }
+
+        .comment {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        .delete-button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #e63946;
+            /* Vibrant red */
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .delete-button:hover {
+            background-color: #d62828;
+            /* Slightly darker red */
+            transform: scale(1.1);
+            /* Slight zoom effect */
+        }
+
+        .delete-button:active {
+            background-color: #a4161a;
+            /* Even darker red when clicked */
+            transform: scale(1);
+            /* Return to original size */
+        }
+
+        #star-rating {
+            margin: 10px 0;
+            display: flex;
+            gap: 5px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        #star-rating input {
+            display: none;
+            /* Hide radio buttons */
+        }
+
+        #star-rating label {
+            color: #ddd;
+            transition: color 0.3s ease;
+        }
+
+        #star-rating input:checked~label,
+        #star-rating label:hover,
+        #star-rating label:hover~label {
+            color: #ffc107;
+            /* Gold color for selected or hovered stars */
+        }
+
+        #rating-graph {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .graph-bar {
+            margin: 5px 0;
+            padding: 5px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -526,7 +645,7 @@
         <a class="nav_text" href="">Order <br> & Returns</a>
         <a href="../../../index_pages/Payment/cart.html"> <img src="../../../Svgs_Files/cart.svg" alt="" width="32"
                 height="32">Cart</a>
-        <a href="login.html">Account</a>
+        <a href="../../../index_pages/login/login.html">Account</a>
     </nav>
 
     <nav>
@@ -542,12 +661,12 @@
             <div class="image-gallery">
                 <img src=".//S25_Ultra_2.jpg" alt="Samsung Galaxy S25 Ultra" class="main-image" id="mainImage">
                 <div class="thumbnails">
-                    <img src="../S25 Ultra/S25_Ultra_2.jpg" alt="Thumbnail">
-                    <img src="../S25 Ultra/S25_Ultra_1.jpg" alt="Thumbnail 1">
-                    <img src="../S25 Ultra/S25_Ultra_3.jpg" alt="Thumbnail 2">
-                    <img src="../S25 Ultra/S25_Ultra_4.jpg" alt="Thumbnail 3">
-                    <img src="../S25 Ultra/S25_Ultra_5.jpg" alt="Thumbnail 4">
-                    <img src="../S25 Ultra/S25_Ultra_6.jpg" alt="Thumbnail 5">
+                    <img src="S25_Ultra_2.jpg" alt="Thumbnail 6">
+                    <img src="S25_Ultra_1.jpg" alt="Thumbnail 1">
+                    <img src="S25_Ultra_3.jpg" alt="Thumbnail 2">
+                    <img src="S25_Ultra_4.jpg" alt="Thumbnail 3">
+                    <img src="S25_Ultra_5.jpg" alt="Thumbnail 4">
+                    <img src="S25_ultra_6.jpg" alt="Thumbnail 5">
                 </div>
             </div>
 
@@ -647,92 +766,204 @@
             </div>
         </div>
 
-        <!-- deatils of the products -->
+        <!-- Detailed Product Specifications -->
         <div class="specifications-section">
-            <h2 class="spec-title">Samsung Galaxy S25 Ultra - Specifications</h2>
+            <h2 class="spec-title">Samsung Galaxy S25 Ultra - Full Specifications</h2>
             <div class="spec-container">
+
+                <!-- Brand and Model -->
+                <div class="spec-item">
+                    <h3>Brand & Model</h3>
+                    <p>
+                        <strong>Brand:</strong> Samsung <br>
+                        <strong>Model:</strong> Galaxy S25 Ultra <br>
+                        <strong>Release Year:</strong> 2025 <br>
+                        <strong>Series:</strong> Galaxy S Series (Flagship Model)
+                    </p>
+                </div>
+
+                <!-- Display -->
                 <div class="spec-item">
                     <h3>Display</h3>
-                    <p>6.8-inch AMOLED, 1440 x 3200 pixels, 120Hz refresh rate, HDR10+, Gorilla Glass Victus 3</p>
+                    <p>
+                        6.8-inch Dynamic AMOLED 2X <br>
+                        Resolution: 1440 x 3200 pixels (QHD+) <br>
+                        Refresh Rate: 120Hz Adaptive Refresh Rate <br>
+                        Brightness: 2500 nits peak <br>
+                        HDR10+ Certified <br>
+                        Corning Gorilla Glass Victus 3 Protection
+                    </p>
                     <img src="../../../icons/Display-icons.png" alt="Display Icon">
                 </div>
+
+                <!-- Processor -->
                 <div class="spec-item">
                     <h3>Processor</h3>
-                    <p>Exynos 2400 (4nm) / Snapdragon 8 Gen 3 (4nm), AI-Powered Efficiency</p>
+                    <p>
+                        <strong>Options:</strong> <br>
+                        Exynos 2400 (4nm) – Europe/Asia <br>
+                        Snapdragon 8 Gen 3 (4nm) – USA/China <br>
+                        <strong>Features:</strong> AI-Powered Efficiency, 5G Optimized, Improved Cooling System
+                    </p>
                     <img src="../../../icons/Processor-Icon.png" alt="Processor Icon">
                 </div>
+
+                <!-- Camera -->
                 <div class="spec-item">
                     <h3>Camera</h3>
                     <p>
-                        Rear: 200MP (wide) + 12MP (ultrawide) + 10MP (telephoto), 10x optical zoom <br>
-                        Front: 40MP with AI beautification
+                        <strong>Rear Cameras:</strong> <br>
+                        - 200MP (Wide, f/1.7, OIS) <br>
+                        - 12MP (Ultra-wide, 120° field of view) <br>
+                        - 10MP (Telephoto, 3x Optical Zoom) <br>
+                        - 10MP (Periscope, 10x Optical Zoom, 100x Space Zoom) <br>
+                        <strong>Front Camera:</strong> 40MP with AI Beautification and Autofocus <br>
+                        <strong>Features:</strong> Super Night Mode, 8K Video Recording, Pro Video Mode
                     </p>
                     <img src="../../../icons/camara-icon.png" alt="Camera Icon">
                 </div>
+
+                <!-- Battery -->
                 <div class="spec-item">
                     <h3>Battery</h3>
                     <p>
-                        5000mAh, 45W wired fast charging, 15W wireless charging, 5W reverse wireless charging
+                        5000mAh Li-Ion Battery <br>
+                        Charging: 45W Wired, 15W Wireless, 5W Reverse Wireless Charging <br>
+                        Battery Life: 2-Day Usage with Adaptive Power Saving
                     </p>
                     <img src="../../../icons/battry-icon.png" alt="Battery Icon">
                 </div>
+
+                <!-- Storage & RAM -->
                 <div class="spec-item">
                     <h3>Storage & RAM</h3>
                     <p>
-                        12GB LPDDR5X RAM <br>
-                        Storage options: 256GB, 512GB, 1TB (UFS 4.0)
+                        <strong>RAM:</strong> 12GB LPDDR5X (High-Speed Multitasking) <br>
+                        <strong>Storage Options:</strong> 256GB, 512GB, 1TB (UFS 4.0) <br>
+                        Expandable Storage: Not Supported
                     </p>
                     <img src="../../../icons/storage-icon.png" alt="Storage Icon">
                 </div>
+
+                <!-- Operating System -->
                 <div class="spec-item">
-                    <h3>OS</h3>
+                    <h3>Operating System</h3>
                     <p>
-                        Android 14 with One UI 6.0, Enhanced Multitasking, Advanced Privacy Controls
+                        Android 14 (Out of the Box) <br>
+                        One UI 6.0 Skin <br>
+                        Features: Enhanced Multitasking, Improved Widgets, Advanced Privacy Controls
                     </p>
                     <img src="../../../icons/OS-Icon.png" alt="OS Icon">
                 </div>
+
+                <!-- Build -->
                 <div class="spec-item">
-                    <h3>Build</h3>
+                    <h3>Build & Design</h3>
                     <p>
-                        Titanium Frame, IP68 Dust & Water Resistance (up to 1.5m for 30 min)
+                        Titanium Frame (Premium Build) <br>
+                        Corning Gorilla Glass Victus 3 (Front & Back) <br>
+                        IP68 Rated (Water Resistance up to 1.5m for 30 minutes, Dust Resistant) <br>
+                        Ultra-Slim Bezels, Sleek Design
                     </p>
                     <img src="../../../icons/Build-Icon.png" alt="Build Icon">
                 </div>
+
+                <!-- Audio -->
                 <div class="spec-item">
                     <h3>Audio</h3>
                     <p>
-                        Stereo Speakers tuned by AKG, Dolby Atmos, No 3.5mm headphone jack
+                        Stereo Speakers tuned by AKG <br>
+                        Dolby Atmos Support <br>
+                        No 3.5mm Headphone Jack (USB-C Audio Supported)
                     </p>
                     <img src="../../../icons/Audio Icon.png" alt="Audio Icon">
                 </div>
+
+                <!-- Connectivity -->
                 <div class="spec-item">
                     <h3>Connectivity</h3>
                     <p>
-                        5G, Wi-Fi 7, Bluetooth 5.3, USB-C 3.2, Dual SIM + eSIM support
+                        5G Ready (Dual Mode SA/NSA) <br>
+                        Wi-Fi 7, Bluetooth 5.3 <br>
+                        USB-C 3.2 Port <br>
+                        Dual SIM + eSIM Support <br>
+                        NFC, Ultra-Wideband (UWB)
                     </p>
                     <img src="../../../icons/Connectivity Icon.png" alt="Connectivity Icon">
                 </div>
 
+                <!-- Extras -->
                 <div class="spec-item">
                     <h3>Extras</h3>
                     <p>
-                        S Pen, Samsung DeX, Wireless PowerShare, Secure Folder, Samsung Knox
+                        S Pen Support (Included in Box) <br>
+                        Samsung DeX (Desktop Experience) <br>
+                        Wireless PowerShare <br>
+                        Samsung Knox (Enterprise-Grade Security) <br>
+                        Secure Folder, Advanced Biometric Authentication (Fingerprint & Facial Recognition)
                     </p>
                 </div>
+
+                <!-- Colors -->
                 <div class="spec-item">
                     <h3>Colors</h3>
                     <p>
-                        Phantom Black, Green, Burgundy, Cream
+                        Phantom Black, Green, Burgundy, Cream, Titanium Silver (Exclusive Color Option)
                     </p>
                 </div>
             </div>
         </div>
+
         <h2 style="display: flex; justify-content: center;">For Better Experince Turn on the Audio</h2>
         <div class="video-section">
             <video src="s25_ultra.mp4" controls autoplay muted></video>
             <video src="S25 Ultra Cinematic Video - Made with Clipchamp.mp4" controls autoplay muted></video>
         </div>
     </div>
+
+    <!-- comment section -->
+    <form id="comment-form">
+
+        <div id="rating-graph">
+            <!-- Star rating graph will be dynamically added here -->
+        </div>
+
+        <textarea id="comment-input" placeholder="Write your review here..." required></textarea>
+
+        <div id="star-rating">
+            <label>
+                <input type="radio" name="rating" value="1" required />
+                ★
+            </label>
+            <label>
+                <input type="radio" name="rating" value="2" />
+                ★
+            </label>
+            <label>
+                <input type="radio" name="rating" value="3" />
+                ★
+            </label>
+            <label>
+                <input type="radio" name="rating" value="4" />
+                ★
+            </label>
+            <label>
+                <input type="radio" name="rating" value="5" />
+                ★
+            </label>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Display Comments -->
+    <div id="comments-container">
+        <h3>Comments</h3>
+        <div id="comment-list">
+            <!-- Comments will be dynamically added here -->
+        </div>
+    </div>
+
 
     <script>
         // Select the main image and all thumbnails
@@ -746,8 +977,102 @@
                 mainImage.src = thumbnail.src;
             });
         });
-    </script>
 
+
+        // comment section JS
+        const commentForm = document.getElementById('comment-form');
+        const commentInput = document.getElementById('comment-input');
+        const commentList = document.getElementById('comment-list');
+        const ratingCounts = [0, 0, 0, 0, 0]; // Array to store counts for 1-star to 5-star
+        const graphContainer = document.getElementById('rating-graph');
+
+        // Handle form submission
+        commentForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form from refreshing the page
+
+            // Get the comment text
+            const commentText = commentInput.value.trim();
+
+            if (!commentText) {
+                alert('Please write a comment before submitting.');
+                return;
+            }
+
+            // Get the selected rating
+            const rating = parseInt(document.querySelector('input[name="rating"]:checked')?.value);
+
+            if (!rating) {
+                alert('Please select a star rating.');
+                return;
+            }
+
+            // Increment the rating count
+            ratingCounts[rating - 1]++;
+            updateGraph();
+
+            // Create a new comment element
+            const commentElement = document.createElement('div');
+            commentElement.className = 'comment';
+
+            // Add the comment text
+            const commentTextElement = document.createElement('span');
+            commentTextElement.textContent = commentText;
+
+            // Add the star rating
+            const ratingElement = document.createElement('span');
+            ratingElement.className = 'rating';
+            ratingElement.innerHTML = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+
+            // Add a delete button
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.className = 'delete-button';
+
+            // Attach event listener to delete the comment
+            deleteButton.addEventListener('click', function () {
+                commentList.removeChild(commentElement);
+                ratingCounts[rating - 1]--;
+                updateGraph();
+            });
+
+            // Append text, rating, and delete button to the comment element
+            commentElement.appendChild(commentTextElement);
+            commentElement.appendChild(ratingElement);
+            commentElement.appendChild(deleteButton);
+
+            // Add the new comment to the list
+            commentList.appendChild(commentElement);
+
+            // Clear the input field and rating
+            commentInput.value = '';
+            document.querySelector('input[name="rating"]:checked').checked = false;
+        });
+
+        // Handle "Enter" key press
+        commentInput.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault(); // Prevent default behavior of adding a new line
+                commentForm.dispatchEvent(new Event('submit')); // Trigger form submission
+            }
+        });
+
+        // Update the rating graph
+        function updateGraph() {
+            graphContainer.innerHTML = ''; // Clear existing graph
+            ratingCounts.forEach((count, index) => {
+                const bar = document.createElement('div');
+                bar.className = 'graph-bar';
+                bar.style.width = `${count * 20}px`; // Scale bar width based on count
+                bar.textContent = `${index + 1} Star: ${count}`;
+                graphContainer.appendChild(bar);
+            });
+        }
+
+    </script>
+    <footer>
+        <p>© 2025 Dhaval & Sons Electronics. All rights reserved.</p>
+    </footer>
+<br>
 </body>
 
 </html>
